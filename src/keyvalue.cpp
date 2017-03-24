@@ -1,7 +1,7 @@
 #include "keyvalue.hpp"
 
 template<typename Out>
-void List::split(const std::string &s, char delim, Out result) {
+void List::split_keyvalue(const std::string &s, char delim, Out result) {
   std::stringstream ss;
   ss.str(s);
   std::string item;
@@ -11,7 +11,23 @@ void List::split(const std::string &s, char delim, Out result) {
   *(result++) = item;
 }
 
-List::KeyValue List::split(const std::string &s, char delim) {
+List::KeyValue List::split_keyvalue(const std::string &s, char delim) {
+  std::vector<std::string> elems;
+  split_keyvalue(s, delim, std::back_inserter(elems));
+  return elems;
+}
+
+template<typename Out>
+void List::split(const std::string &s, char delim, Out result) {
+  std::stringstream ss;
+  ss.str(s);
+  std::string item;
+  while (std::getline(ss, item, delim)) {
+    *(result++) = item;
+  }
+}
+
+std::vector<std::string> List::split(const std::string &s, char delim) {
   std::vector<std::string> elems;
   split(s, delim, std::back_inserter(elems));
   return elems;
@@ -34,4 +50,5 @@ std::string List::find(List::KeyValueList *list, std::string key) {
     kv = *it;
     if (kv[0] == key) return kv[1];
   }
+  return "";
 }

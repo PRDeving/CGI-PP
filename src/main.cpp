@@ -17,6 +17,13 @@ int main(int argc, char *argv[], const char* env[]) {
     std::cout << "<p>" << kv[0] << ": " << kv[1] << "</p>" << std::endl;
   }
 
+  List::KeyValueList data = Request::parse_data(List::find(&request, "QUERY_STRING"));
+  std::cout << "<h1>Data</h1>" << std::endl;
+  for(std::vector<List::KeyValue>::iterator it = data.begin(); it != data.end(); ++it) {
+    kv = *it;
+    std::cout << "<p>" << kv[0] << ": " << kv[1] << "</p>" << std::endl;
+  }
+
   return 0;
 }
 
