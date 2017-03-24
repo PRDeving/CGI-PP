@@ -1,5 +1,5 @@
 compile:
-	g++ -Iincludes src/request.cpp src/keyvalue.cpp src/main.cpp -o cpp.cgi
+	g++ -Wall -Iincludes src/request.cpp src/keyvalue.cpp src/main.cpp -o cpp.cgi
 
 install: compile
 	sudo mkdir -p /var/www/cgi-bin; \
@@ -11,5 +11,5 @@ install: compile
 		sudo service httpd restart; \
 	fi
 
-deploy:
+deploy: compile
 	ssh -t user@192.168.1.41 'cd /home/user/CGI-PP; git pull; make; sudo make install'
