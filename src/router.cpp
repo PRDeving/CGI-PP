@@ -1,6 +1,14 @@
 #include "router.hpp"
 
+void err404(List::KeyValueList kvl) {
+  std::cout << "404 Error" << std::endl;
+}
+
 std::vector<Router::State> routes;
+Router::State notFound = {
+  "/404",
+  &err404
+};
 
 Router::State Router::find(std::string key) {
   Router::State r;
@@ -8,7 +16,7 @@ Router::State Router::find(std::string key) {
     r = *it;
     if (r.url == key) return r;
   }
-  return r;
+  return notFound;
 }
 
 void Router::state(std::string state, void (*cb)(List::KeyValueList)) {
