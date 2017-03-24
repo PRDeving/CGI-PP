@@ -18,6 +18,7 @@ namespace List {
   void add(KeyValueList *, KeyValue);
   void add_keyvalue(KeyValueList *, std::string, std::string);
   std::string find(KeyValueList *, std::string);
+  void each(KeyValueList *, void (*cb)(KeyValue));
 }
 
 #endif
