@@ -1,0 +1,6 @@
+#!/bin/sh
+
+make
+sudo mv cpp.cgi /var/www/cgi-bin/cpp.cgi
+sudo service apache2 stop
+sudo service apache2 start
