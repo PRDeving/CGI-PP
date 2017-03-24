@@ -15,7 +15,7 @@ namespace Router {
 
   void state(std::string, void (*)(List::KeyValueList));
   State find(std::string key);
-  void evaluate(std::string);
+  void evaluate(std::string, List::KeyValueList);
 }
 
 #endif

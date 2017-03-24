@@ -26,7 +26,6 @@ void Router::state(std::string state, void (*cb)(List::KeyValueList)) {
   routes.push_back(s);
 }
 
-void Router::evaluate(std::string path) {
-  List::KeyValueList kvl;
+void Router::evaluate(std::string path, List::KeyValueList kvl) {
   Router::find(path).cb(kvl);
 }
