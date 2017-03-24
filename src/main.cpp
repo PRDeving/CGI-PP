@@ -10,7 +10,10 @@ void printList(List::KeyValue kv) {
 }
 
 void homeHandler(List::KeyValueList kvl) {
-  std::cout << "<div>This is the home</div>" << std::endl;
+  std::cout << "<div>This is the home</div>" << std::endl
+    << "<h3>This page is being rendered in C++</h3>"
+    << "<h5>AWESOME!!</h5>"
+    << "<h3>Data</h3>" << std::endl;
   List::each(&kvl, &printList);
 }
 
@@ -35,6 +38,7 @@ int main(int argc, char *argv[], const char* env[]) {
     List::each(&data, &printList);
   #endif
 
+  Router::state("", &homeHandler);
   Router::state("/home", &homeHandler);
   Router::state("/test", &testHandler);
 
