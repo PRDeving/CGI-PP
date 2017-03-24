@@ -5,7 +5,7 @@ install: compile
 	sudo mkdir -p /var/www/cgi-bin; \
 	sudo mv cpp.cgi /var/www/cgi-bin; \
 	if [ -d "/etc/apache2" ]; then \
-		sudo service apache2 restart \
+		sudo service apache2 restart; \
 	fi
 
 deploy: compile
