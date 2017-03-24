@@ -1,5 +1,5 @@
 compile:
-	g++ -Wall -Iincludes src/request.cpp src/keyvalue.cpp src/main.cpp -o cpp.cgi
+	g++ -Wall -Iincludes src/request.cpp src/keyvalue.cpp src/router.cpp src/main.cpp -o cpp.cgi
 
 install: 
 	sudo mkdir -p /usr/lib/cgi-bin; \

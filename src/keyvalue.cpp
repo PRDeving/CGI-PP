@@ -53,7 +53,7 @@ std::string List::find(List::KeyValueList *list, std::string key) {
   return "";
 }
 
-void List::each(KeyValueList *list, void (*cb)(KeyValue)) {
+void List::each(List::KeyValueList *list, void (*cb)(List::KeyValue)) {
   List::KeyValue kv;
   for (std::vector<List::KeyValue>::iterator it = list -> begin(); it != list -> end(); ++it) {
     kv = *it;
