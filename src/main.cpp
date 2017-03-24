@@ -11,10 +11,12 @@ void printList(List::KeyValue kv) {
 
 void homeHandler(List::KeyValueList kvl) {
   std::cout << "<div>This is the home</div>" << std::endl;
+  List::each(&kvl, &printList);
 }
 
 void testHandler(List::KeyValueList kvl) {
   std::cout << "<div>This is the test</div>" << std::endl;
+  List::each(&kvl, &printList);
 }
 
 int main(int argc, char *argv[], const char* env[]) {
