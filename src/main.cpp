@@ -11,7 +11,12 @@ int main(int argc, char *argv[], const char* env[]) {
 
   List::KeyValueList request = Request::parse_request(env);
 
-  std::cout << List::find(&request, "MAIL") << std::endl;
+  List::KeyValue kv;
+  for(std::vector<List::KeyValue>::iterator it = request.begin(); it != request.end(); ++it) {
+    kv = *it;
+    std::cout << "<p>" << kv[0] << ": " << kv[1] << "</p>" << std::endl;
+  }
+
   return 0;
 }
 
