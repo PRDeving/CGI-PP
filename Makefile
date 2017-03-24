@@ -6,6 +6,7 @@ install:
 		sudo mv cpp.cgi /var/www/cgi-bin; \
 		if [ -d "/etc/apache2" ]; then \
 		if [ -d "/etc/apache2/mods-enabled/cgi.load"]; then \
+		echo "modules cgi already enabled"; \
 		else sudo cp /etc/apache2/mods-available/cgi* /etc/apache2/mods-enabled; \
 		fi; \
 		sudo service apache2 restart; \
