@@ -6,11 +6,10 @@ install: compile
 	mv cpp.cgi /www/cgi-bin; \
 	if [ -d "/etc/apache2" ]; then \
 		sudo service apache2 restart \
-	else \
-		if [ -d "/etc/httpd" ]; then \
-			sudo service httpd restart \
-		fi \
-	fi
+	fi \
+	if [ -d "/etc/httpd" ]; then \
+	sudo service httpd restart \
+	fi \
 
 deploy: compile
-	ssh user@192.168.1.41 << "cd ~/CGI-PP; git pull; make; sudo make install"
+	ssh user@192.168.1.41 << 'cd ~/CGI-PP; git pull; make; sudo make install'
