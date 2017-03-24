@@ -2,12 +2,16 @@ compile:
 	g++ -Wall -Iincludes src/request.cpp src/keyvalue.cpp src/main.cpp -o cpp.cgi
 
 install: 
-	sudo mkdir -p /var/www/cgi-bin; \
-		sudo mv cpp.cgi /var/www/cgi-bin; \
+	sudo mkdir -p /usr/lib/cgi-bin; \
+		sudo mv cpp.cgi /usr/lib/cgi-bin; \
 		if [ -d "/etc/apache2" ]; then \
 		if [ -d "/etc/apache2/mods-enabled/cgi.load"]; then \
 		echo "modules cgi already enabled"; \
 		else sudo cp /etc/apache2/mods-available/cgi* /etc/apache2/mods-enabled; \
+		fi; \
+		if [ -d "/etc/apache2/conf-enabled/serve-cgi-bin.conf"]; then \
+		echo "conf cgi already enabled"; \
+		else sudo cp /etc/apache2/conf-available/serve-cgi-bin* /etc/apache2/conf-enabled; \
 		fi; \
 		sudo service apache2 restart; \
 		fi; \
