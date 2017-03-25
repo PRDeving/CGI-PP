@@ -78,3 +78,22 @@ TEST_F(ParserTest,to_keyvaluelist_several_delims){
   EXPECT_STREQ(t[1].value.c_str(), "2");
   EXPECT_EQ(t.size(), 2);
 }
+
+
+// TO_CHUNKS
+TEST_F(ParserTest,to_chunks){
+  std::vector<std::string> t = Parse::to_chunks("a,aa,aaa", ',');
+  EXPECT_STREQ(t[0].c_str(), "a");
+  EXPECT_STREQ(t[1].c_str(), "aa");
+  EXPECT_STREQ(t[2].c_str(), "aaa");
+  EXPECT_EQ(t.size(), 3);
+}
+
+TEST_F(ParserTest,to_chunks_corrupted){
+  std::vector<std::string> t = Parse::to_chunks("a,,,aa,,w,,,,aaa", ',');
+  EXPECT_STREQ(t[0].c_str(), "a");
+  EXPECT_STREQ(t[1].c_str(), "aa");
+  EXPECT_STREQ(t[2].c_str(), "w");
+  EXPECT_STREQ(t[3].c_str(), "aaa");
+  EXPECT_EQ(t.size(), 4);
+}

@@ -1,7 +1,7 @@
 #include "keyvalue.hpp"
 
 void List::add(List::KeyValueList *list, List::KeyValue kv) {
-  list -> push_back(kv);
+  if (!kv.key.empty() && !kv.value.empty()) list -> push_back(kv);
 }
 
 void List::add_keyvalue(List::KeyValueList *list, std::string key, std::string val) {

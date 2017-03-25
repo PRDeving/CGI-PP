@@ -22,7 +22,7 @@ std::vector<std::string> Parse::to_chunks(std::string s, char delim) {
   ss.str(s);
   std::string item;
   while (std::getline(ss, item, delim)) {
-    ret.push_back(item);
+    if (!item.empty()) ret.push_back(item);
   }
   return ret;
 }
