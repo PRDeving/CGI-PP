@@ -1,3 +1,11 @@
-#CGI++
+# CGI++
 
 CGI++ is a C++ cgi for Apache, wouldnt be cool to build APIs with pro tier languages?
+
+
+# Dependencies
+
+- Apache 2
+- Apache CGI modules
+- [Google Tests C++](https://github.com/google/googletest.git)
+
