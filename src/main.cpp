@@ -12,7 +12,7 @@ void printList(List::KeyValue kv) {
 
 void homeHandler(List::KeyValueList kvl) {
 
-  std::cout << File::import("~/CGI-PP/templates/index.html")
+  std::cout << File::import("/home/user/CGI-PP/templates/index.html")
     << "<h3>Data</h3>" << std::endl;
   List::each(&kvl, &printList);
 }
