@@ -6,4 +6,4 @@ compile:
 		../src/request.cpp\
 		../src/router.cpp\
 		parser_test.cpp\
-		tests.cpp -lgtest -o tests
+		tests.cpp -lgtest -lpthread -o tests

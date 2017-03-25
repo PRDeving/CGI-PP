@@ -20,7 +20,7 @@ install:
 		fi;
 
 deploy: compile
-	ssh -t user@192.168.1.41 'cd /home/user/CGI-PP; git pull; make; sudo make install'
+	ssh -t user@192.168.1.38 'cd /home/user/CGI-PP; git pull; make; sudo make install'
 
 tests:
 	cd test; make
