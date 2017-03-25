@@ -13,7 +13,7 @@ class FilesystemTest : public ::testing::Test {
 // IMPORT
 TEST_F(FilesystemTest,import){
   std::string f = File::import("file.txt");
-  EXPECT_STREQ(f.c_str(), "testing file\n");
+  EXPECT_STREQ(f.substr(0,7).c_str(), "testing");
 }
 
 TEST_F(FilesystemTest,import_doesnt_exists){

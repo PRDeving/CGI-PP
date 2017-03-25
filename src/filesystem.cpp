@@ -17,7 +17,7 @@ std::string File::import(std::string path) {
   fclose(file);
 
   std::string content = "";
-  if (r == lSize) {
+  if (r == (size_t)lSize) {
     content = std::string(buffer);
   }
 
