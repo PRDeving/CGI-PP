@@ -7,4 +7,5 @@ compile:
 		../src/router.cpp\
 		parser_test.cpp\
 		keyvalue_test.cpp\
+		filesystem_test.cpp\
 		tests.cpp -lgtest -lpthread -o tests

@@ -26,4 +26,4 @@ tests:
 	cd test; make
 
 run-tests:
-	./test/tests
+	cd test; ./tests
