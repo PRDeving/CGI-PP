@@ -1,5 +1,5 @@
-compile:
-	g++ -Wall -Iincludes src/request.cpp src/keyvalue.cpp src/router.cpp src/main.cpp -o cpp.cgi
+compile: tests run-tests
+	g++ -Wall -Iincludes src/keyvalue.cpp src/parser.cpp src/filesystem.cpp src/request.cpp src/router.cpp src/main.cpp -o cpp.cgi
 
 install: 
 	sudo mkdir -p /usr/lib/cgi-bin; \
@@ -21,3 +21,9 @@ install:
 
 deploy: compile
 	ssh -t user@192.168.1.41 'cd /home/user/CGI-PP; git pull; make; sudo make install'
+
+tests:
+	cd test; make
+
+run-tests:
+	./test/tests
